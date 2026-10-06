@@ -313,9 +313,9 @@ class ResumeDetailsScreen extends StatelessWidget {
               subtitle: 'Laguna Carparts Mfg., Inc.,',
               period: '2025 - Present',
               description:
-                  'Applied IT knowledge to academic and personal '
-                  'projects, built web and mobile applications, and '
-                  'strengthened technical problem-solving skills.',
+                  'Provided broad IT support, assisted employees with '
+                  'technical issues, and helped maintain reliable '
+                  'workplace systems for daily business operations.',
             ),
             const SizedBox(height: 10),
 
