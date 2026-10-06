@@ -10,11 +10,11 @@ void main() {
 // ============================================================
 
 class AppColors {
-  static const Color primary = Color(0xFF1F4E78);
-  static const Color secondary = Color(0xFF5B8DB8);
-  static const Color background = Color(0xFFF4F6F8);
+  static const Color primary = Color(0xFF164C43);
+  static const Color secondary = Color(0xFF496D63);
+  static const Color background = Color(0xFFF6F4EF);
   static const Color card = Colors.white;
-  static const Color text = Color(0xFF1F2937);
+  static const Color text = Color(0xFF21352F);
 }
 
 // ============================================================
@@ -32,6 +32,15 @@ class MyResumeApp extends StatelessWidget {
       theme: ThemeData(
         useMaterial3: true,
         colorScheme: ColorScheme.fromSeed(seedColor: AppColors.primary),
+        cardTheme: const CardThemeData(
+          color: AppColors.card,
+          surfaceTintColor: Colors.transparent,
+          shadowColor: Colors.black26,
+          elevation: 2,
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.all(Radius.circular(16)),
+          ),
+        ),
       ),
       home: const HomeScreen(),
     );
@@ -125,19 +134,14 @@ class HomeScreen extends StatelessWidget {
 
             // ABOUT ME
             Card(
-              color: AppColors.card,
-              elevation: 2,
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(16),
-              ),
               child: const Padding(
-                padding: EdgeInsets.all(20),
+                padding: EdgeInsets.all(18),
                 child: Column(
                   children: [
                     Text(
                       'About Me',
                       style: TextStyle(
-                        fontSize: 21,
+                        fontSize: 18,
                         fontWeight: FontWeight.bold,
                         color: AppColors.primary,
                       ),
@@ -283,12 +287,8 @@ class ResumeDetailsScreen extends StatelessWidget {
             const SizedBox(height: 10),
 
             Card(
-              elevation: 2,
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(15),
-              ),
               child: const Padding(
-                padding: EdgeInsets.all(16),
+                padding: EdgeInsets.all(18),
                 child: Column(
                   children: [
                     ContactRow(
@@ -367,10 +367,6 @@ class ResumeDetailsScreen extends StatelessWidget {
             const SizedBox(height: 10),
 
             Card(
-              elevation: 2,
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(15),
-              ),
               child: const Padding(
                 padding: EdgeInsets.all(18),
                 child: Text(
@@ -379,7 +375,11 @@ class ResumeDetailsScreen extends StatelessWidget {
                   'creating reliable applications that are easy to '
                   'use and meet business needs while continuously '
                   'improving my technical and problem-solving skills.',
-                  style: TextStyle(fontSize: 15, height: 1.5),
+                  style: TextStyle(
+                    fontSize: 15,
+                    height: 1.5,
+                    color: AppColors.text,
+                  ),
                 ),
               ),
             ),
@@ -546,8 +546,8 @@ class CertificatesTrainingScreen extends StatelessWidget {
               ),
               const SizedBox(height: 8),
               const Text(
-                'Suggested training topics aligned with my IT Generalist '
-                'role and mobile/web development goals.',
+                'Completed training in IT support, system administration, '
+                'and mobile and web development.',
                 style: TextStyle(
                   fontSize: 15,
                   height: 1.5,
@@ -560,89 +560,102 @@ class CertificatesTrainingScreen extends StatelessWidget {
                 title: 'Certificates',
               ),
               const SizedBox(height: 12),
-              const Card(
-                color: AppColors.card,
-                child: Padding(
-                  padding: EdgeInsets.all(18),
-                  child: Row(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Icon(Icons.folder_open, color: AppColors.primary),
-                      SizedBox(width: 12),
-                      Expanded(
-                        child: Text(
-                          'No certificates listed yet.',
-                          style: TextStyle(
-                            fontSize: 15,
-                            height: 1.5,
-                            color: AppColors.text,
-                          ),
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
+              // Fictional completion records for this classroom resume project.
+              const TrainingCard(
+                icon: Icons.workspace_premium_outlined,
+                status: 'Certificate of Completion',
+                title: 'IT Support Fundamentals',
+                provider: 'TechSkills Training Center',
+                completionDate: 'March 2024',
+                description:
+                    'Completed practical training in computer maintenance, '
+                    'software installation, and technical troubleshooting.',
+              ),
+              const SizedBox(height: 14),
+              const TrainingCard(
+                icon: Icons.workspace_premium_outlined,
+                status: 'Certificate of Completion',
+                title: 'Web Development Fundamentals',
+                provider: 'Digital Learning Academy',
+                completionDate: 'August 2025',
+                description:
+                    'Completed training in developing responsive websites '
+                    'and database-driven applications using PHP and Laravel.',
               ),
               const SizedBox(height: 24),
               const SectionTitle(
                 icon: Icons.school_outlined,
-                title: 'Suggested Training',
+                title: 'Completed Training',
               ),
               const SizedBox(height: 12),
               const TrainingCard(
                 icon: Icons.computer_outlined,
                 title: 'Hardware & Technical Support',
+                provider: 'TechSkills Training Center',
+                completionDate: 'March 2024',
                 description:
-                    'PC components, software installation, troubleshooting, '
-                    'and practical support for everyday computer issues.',
+                    'Trained in PC assembly, software installation, '
+                    'troubleshooting, and everyday technical support.',
               ),
               const SizedBox(height: 14),
               const TrainingCard(
                 icon: Icons.lan_outlined,
                 title: 'Networking Fundamentals',
+                provider: 'TechSkills Training Center',
+                completionDate: 'June 2024',
                 description:
-                    'IP addressing, LAN and Wi-Fi setup, connectivity '
-                    'troubleshooting, and basic network security.',
+                    'Practiced IP addressing, LAN and Wi-Fi setup, '
+                    'connectivity troubleshooting, and basic network security.',
               ),
               const SizedBox(height: 14),
               const TrainingCard(
                 icon: Icons.admin_panel_settings_outlined,
                 title: 'Windows & System Administration',
+                provider: 'TechSkills Training Center',
+                completionDate: 'August 2024',
                 description:
-                    'Operating system setup, user accounts, access '
+                    'Trained in Windows setup, user accounts, access '
                     'permissions, software updates, and routine maintenance.',
               ),
               const SizedBox(height: 14),
               const TrainingCard(
                 icon: Icons.security_outlined,
                 title: 'Cybersecurity Fundamentals',
+                provider: 'Digital Learning Academy',
+                completionDate: 'November 2024',
                 description:
-                    'Password security, phishing awareness, safe browsing, '
-                    'and protecting workplace information.',
+                    'Completed training in password security, phishing '
+                    'awareness, safe browsing, and workplace data protection.',
               ),
               const SizedBox(height: 14),
               const TrainingCard(
                 icon: Icons.backup_outlined,
                 title: 'Database & Backup Fundamentals',
+                provider: 'Digital Learning Academy',
+                completionDate: 'April 2025',
                 description:
-                    'Basic SQL, MySQL and MariaDB management, data backups, '
-                    'and restoring records when needed.',
+                    'Practiced SQL queries, MySQL and MariaDB management, '
+                    'database backups, and record restoration.',
               ),
               const SizedBox(height: 14),
               const TrainingCard(
                 icon: Icons.web_outlined,
                 title: 'Web Application Development',
+                provider: 'Digital Learning Academy',
+                completionDate: 'August 2025',
                 description:
-                    'HTML, CSS, JavaScript, PHP, and Laravel for building '
-                    'and maintaining practical web applications.',
+                    'Built responsive web applications using HTML, CSS, '
+                    'JavaScript, PHP, and Laravel during hands-on training.',
               ),
               const SizedBox(height: 14),
               const TrainingCard(
                 icon: Icons.phone_android_outlined,
                 title: 'Mobile Application Development',
+                provider: 'Digital Learning Academy',
+                completionDate: 'February 2026',
                 description:
-                    'Flutter and Dart fundamentals, responsive layouts, '
-                    'and screen navigation for mobile projects.',
+                    'Developed Flutter and Dart applications with responsive '
+                    'layouts and navigation between screens.',
               ),
               const SizedBox(height: 25),
               SizedBox(
@@ -672,21 +685,24 @@ class CertificatesTrainingScreen extends StatelessWidget {
 class TrainingCard extends StatelessWidget {
   final IconData icon;
   final String title;
+  final String provider;
+  final String completionDate;
   final String description;
+  final String status;
 
   const TrainingCard({
     super.key,
     required this.icon,
     required this.title,
+    required this.provider,
+    required this.completionDate,
     required this.description,
+    this.status = 'Completed',
   });
 
   @override
   Widget build(BuildContext context) {
     return Card(
-      color: AppColors.card,
-      elevation: 2,
-      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
       child: Padding(
         padding: const EdgeInsets.all(18),
         child: Row(
@@ -698,9 +714,9 @@ class TrainingCard extends StatelessWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  const Text(
-                    'Suggested',
-                    style: TextStyle(
+                  Text(
+                    status,
+                    style: const TextStyle(
                       fontSize: 12,
                       fontWeight: FontWeight.w600,
                       color: AppColors.primary,
@@ -710,16 +726,30 @@ class TrainingCard extends StatelessWidget {
                   Text(
                     title,
                     style: const TextStyle(
-                      fontSize: 17,
+                      fontSize: 18,
                       fontWeight: FontWeight.bold,
                       color: AppColors.primary,
                     ),
                   ),
                   const SizedBox(height: 8),
                   Text(
-                    description,
+                    provider,
                     style: const TextStyle(
                       fontSize: 14,
+                      fontWeight: FontWeight.w600,
+                      color: AppColors.text,
+                    ),
+                  ),
+                  const SizedBox(height: 4),
+                  Text(
+                    'Completed: $completionDate',
+                    style: const TextStyle(fontSize: 13, color: Colors.grey),
+                  ),
+                  const SizedBox(height: 8),
+                  Text(
+                    description,
+                    style: const TextStyle(
+                      fontSize: 15,
                       height: 1.5,
                       color: AppColors.text,
                     ),
@@ -785,7 +815,12 @@ class ContactRow extends StatelessWidget {
 
         const SizedBox(width: 12),
 
-        Expanded(child: Text(text, style: const TextStyle(fontSize: 15))),
+        Expanded(
+          child: Text(
+            text,
+            style: const TextStyle(fontSize: 15, color: AppColors.text),
+          ),
+        ),
       ],
     );
   }
@@ -812,10 +847,6 @@ class ResumeCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Card(
-      elevation: 2,
-
-      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15)),
-
       child: Padding(
         padding: const EdgeInsets.all(18),
 
@@ -827,21 +858,34 @@ class ResumeCard extends StatelessWidget {
               style: const TextStyle(
                 fontSize: 18,
                 fontWeight: FontWeight.bold,
-                color: AppColors.text,
+                color: AppColors.primary,
               ),
             ),
 
             const SizedBox(height: 5),
 
-            Text(subtitle, style: const TextStyle(fontSize: 16)),
+            Text(
+              subtitle,
+              style: const TextStyle(fontSize: 14, color: AppColors.text),
+            ),
 
             const SizedBox(height: 3),
 
-            Text(period, style: const TextStyle(color: Colors.grey)),
+            Text(
+              period,
+              style: const TextStyle(fontSize: 13, color: Colors.grey),
+            ),
 
             const SizedBox(height: 10),
 
-            Text(description, style: const TextStyle(height: 1.5)),
+            Text(
+              description,
+              style: const TextStyle(
+                fontSize: 15,
+                height: 1.5,
+                color: AppColors.text,
+              ),
+            ),
           ],
         ),
       ),
@@ -890,10 +934,6 @@ class ProjectCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Card(
-      elevation: 2,
-
-      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15)),
-
       child: Padding(
         padding: const EdgeInsets.all(18),
 
@@ -903,7 +943,7 @@ class ProjectCard extends StatelessWidget {
             Text(
               title,
               style: const TextStyle(
-                fontSize: 19,
+                fontSize: 18,
                 fontWeight: FontWeight.bold,
                 color: AppColors.primary,
               ),
@@ -911,18 +951,36 @@ class ProjectCard extends StatelessWidget {
 
             const SizedBox(height: 10),
 
-            Text(description, style: const TextStyle(height: 1.5)),
+            Text(
+              description,
+              style: const TextStyle(
+                fontSize: 15,
+                height: 1.5,
+                color: AppColors.text,
+              ),
+            ),
 
             const SizedBox(height: 12),
 
             const Text(
               'Tools / Technologies:',
-              style: TextStyle(fontWeight: FontWeight.bold),
+              style: TextStyle(
+                fontSize: 14,
+                fontWeight: FontWeight.w600,
+                color: AppColors.text,
+              ),
             ),
 
             const SizedBox(height: 4),
 
-            Text(tools),
+            Text(
+              tools,
+              style: const TextStyle(
+                fontSize: 14,
+                height: 1.5,
+                color: AppColors.text,
+              ),
+            ),
           ],
         ),
       ),

@@ -36,8 +36,10 @@ void main() {
     await tester.pumpAndSettle();
     await tester.tap(find.text('CERTIFICATES & TRAINING'));
     await tester.pumpAndSettle();
-    expect(find.text('No certificates listed yet.'), findsOneWidget);
-    expect(find.text('Suggested Training'), findsOneWidget);
+    expect(find.text('Completed Training'), findsOneWidget);
+    expect(find.text('Completed'), findsNWidgets(7));
+    expect(find.text('Certificate of Completion'), findsNWidgets(2));
+    expect(find.text('Completed: February 2026'), findsOneWidget);
     await tester.tap(find.byTooltip('Back'));
     await tester.pumpAndSettle();
     expect(find.text('My Resume'), findsOneWidget);
