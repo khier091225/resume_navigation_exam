@@ -293,8 +293,8 @@ class ResumeDetailsScreen extends StatelessWidget {
 
             const ResumeCard(
               title: 'Bachelor of Science in Information Technology',
-              subtitle: 'Your School Name',
-              period: '2023 - Present',
+              subtitle: 'Trimex Colleges',
+              period: '2024 - Present',
               description:
                   'Currently pursuing a degree in Information '
                   'Technology with focus on programming, '
@@ -344,11 +344,11 @@ class ResumeDetailsScreen extends StatelessWidget {
               child: const Padding(
                 padding: EdgeInsets.all(18),
                 child: Text(
-                  'My goal is to become a skilled software and '
-                  'mobile application developer who creates '
-                  'useful, reliable, and user-friendly solutions '
-                  'while continuously improving my technical '
-                  'and professional skills.',
+                  'My goal is to grow as an IT Generalist with a '
+                  'strong focus on mobile and web development, '
+                  'creating reliable applications that are easy to '
+                  'use and meet business needs while continuously '
+                  'improving my technical and problem-solving skills.',
                   style: TextStyle(fontSize: 15, height: 1.5),
                 ),
               ),
