@@ -146,11 +146,11 @@ class HomeScreen extends StatelessWidget {
                     SizedBox(height: 10),
 
                     Text(
-                      'I am an Information Technology student '
-                      'interested in mobile application development, '
-                      'web development, and user interface design. '
-                      'I enjoy learning new technologies and creating '
-                      'useful applications.',
+                      'I am an IT Generalist with experience in technical '
+                      'support, troubleshooting, and daily IT operations. '
+                      'I am expanding my skills in mobile and web '
+                      'development to create reliable applications that '
+                      'are easy to use and support business needs.',
                       textAlign: TextAlign.center,
                       style: TextStyle(
                         fontSize: 15,
