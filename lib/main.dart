@@ -417,6 +417,9 @@ class SkillsProjectsScreen extends StatelessWidget {
                 SkillChip(skill: 'HTML'),
                 SkillChip(skill: 'CSS'),
                 SkillChip(skill: 'JavaScript'),
+                SkillChip(skill: 'PHP'),
+                SkillChip(skill: 'AI'),
+                SkillChip(skill: 'Laravel'),
                 SkillChip(skill: 'UI/UX Design'),
                 SkillChip(skill: 'Database'),
               ],
@@ -430,31 +433,27 @@ class SkillsProjectsScreen extends StatelessWidget {
             const SizedBox(height: 15),
 
             const ProjectCard(
-              title: 'Student Management System',
+              title: 'Barangay Information System',
               description:
-                  'A simple application designed to organize '
-                  'student information and academic records.',
-              tools: 'Flutter, Dart',
+                  'A web application designed to organize barangay '
+                  'records and resident information, support '
+                  'administrative workflows, and provide email and '
+                  'SMS notifications for more efficient communication.',
+              tools: 'Laravel, PHP, MariaDB, SMTP, PhilSMS, Claude API',
             ),
 
             const SizedBox(height: 15),
 
             const ProjectCard(
-              title: 'Inventory Management System',
+              title: 'Learning Management System',
               description:
-                  'A system designed to manage products, '
-                  'inventory quantities, and basic stock records.',
-              tools: 'PHP, MySQL, HTML, CSS',
-            ),
-
-            const SizedBox(height: 15),
-
-            const ProjectCard(
-              title: 'Personal Portfolio',
-              description:
-                  'A personal portfolio showcasing skills, '
-                  'projects, experience, and contact information.',
-              tools: 'HTML, CSS, JavaScript',
+                  'A web application designed to organize learning '
+                  'materials, manage course activities, and support '
+                  'communication between instructors and students '
+                  'through email and SMS notifications.',
+              tools:
+                  'HTML, CSS, JavaScript, PHP, MySQL, SMTP, '
+                  'PhilSMS, Claude API',
             ),
 
             const SizedBox(height: 25),
