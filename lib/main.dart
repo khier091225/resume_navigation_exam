@@ -215,6 +215,34 @@ class HomeScreen extends StatelessWidget {
                 ),
               ),
             ),
+
+            const SizedBox(height: 12),
+
+            // CERTIFICATES & TRAINING BUTTON
+            SizedBox(
+              width: double.infinity,
+              child: OutlinedButton.icon(
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const CertificatesTrainingScreen(),
+                    ),
+                  );
+                },
+                icon: const Icon(Icons.workspace_premium_outlined),
+                label: const Text('CERTIFICATES & TRAINING'),
+                style: OutlinedButton.styleFrom(
+                  foregroundColor: AppColors.primary,
+                  side: const BorderSide(color: AppColors.primary),
+                  minimumSize: const Size.fromHeight(48),
+                  padding: const EdgeInsets.symmetric(vertical: 15),
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(12),
+                  ),
+                ),
+              ),
+            ),
           ],
         ),
       ),
@@ -474,6 +502,229 @@ class SkillsProjectsScreen extends StatelessWidget {
                   foregroundColor: Colors.white,
                   padding: const EdgeInsets.symmetric(vertical: 15),
                 ),
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+// ============================================================
+// SCREEN 4: CERTIFICATES & TRAINING
+// ============================================================
+
+class CertificatesTrainingScreen extends StatelessWidget {
+  const CertificatesTrainingScreen({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      backgroundColor: AppColors.background,
+      appBar: AppBar(
+        backgroundColor: AppColors.primary,
+        foregroundColor: Colors.white,
+        title: const Text(
+          'Certificates & Training',
+          style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+        ),
+      ),
+      body: SafeArea(
+        child: SingleChildScrollView(
+          padding: const EdgeInsets.all(20),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              const Text(
+                'Professional Development',
+                style: TextStyle(
+                  fontSize: 24,
+                  fontWeight: FontWeight.bold,
+                  color: AppColors.primary,
+                ),
+              ),
+              const SizedBox(height: 8),
+              const Text(
+                'Suggested training topics aligned with my IT Generalist '
+                'role and mobile/web development goals.',
+                style: TextStyle(
+                  fontSize: 15,
+                  height: 1.5,
+                  color: AppColors.text,
+                ),
+              ),
+              const SizedBox(height: 24),
+              const SectionTitle(
+                icon: Icons.workspace_premium_outlined,
+                title: 'Certificates',
+              ),
+              const SizedBox(height: 12),
+              const Card(
+                color: AppColors.card,
+                child: Padding(
+                  padding: EdgeInsets.all(18),
+                  child: Row(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Icon(Icons.folder_open, color: AppColors.primary),
+                      SizedBox(width: 12),
+                      Expanded(
+                        child: Text(
+                          'No certificates listed yet.',
+                          style: TextStyle(
+                            fontSize: 15,
+                            height: 1.5,
+                            color: AppColors.text,
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+              const SizedBox(height: 24),
+              const SectionTitle(
+                icon: Icons.school_outlined,
+                title: 'Suggested Training',
+              ),
+              const SizedBox(height: 12),
+              const TrainingCard(
+                icon: Icons.computer_outlined,
+                title: 'Hardware & Technical Support',
+                description:
+                    'PC components, software installation, troubleshooting, '
+                    'and practical support for everyday computer issues.',
+              ),
+              const SizedBox(height: 14),
+              const TrainingCard(
+                icon: Icons.lan_outlined,
+                title: 'Networking Fundamentals',
+                description:
+                    'IP addressing, LAN and Wi-Fi setup, connectivity '
+                    'troubleshooting, and basic network security.',
+              ),
+              const SizedBox(height: 14),
+              const TrainingCard(
+                icon: Icons.admin_panel_settings_outlined,
+                title: 'Windows & System Administration',
+                description:
+                    'Operating system setup, user accounts, access '
+                    'permissions, software updates, and routine maintenance.',
+              ),
+              const SizedBox(height: 14),
+              const TrainingCard(
+                icon: Icons.security_outlined,
+                title: 'Cybersecurity Fundamentals',
+                description:
+                    'Password security, phishing awareness, safe browsing, '
+                    'and protecting workplace information.',
+              ),
+              const SizedBox(height: 14),
+              const TrainingCard(
+                icon: Icons.backup_outlined,
+                title: 'Database & Backup Fundamentals',
+                description:
+                    'Basic SQL, MySQL and MariaDB management, data backups, '
+                    'and restoring records when needed.',
+              ),
+              const SizedBox(height: 14),
+              const TrainingCard(
+                icon: Icons.web_outlined,
+                title: 'Web Application Development',
+                description:
+                    'HTML, CSS, JavaScript, PHP, and Laravel for building '
+                    'and maintaining practical web applications.',
+              ),
+              const SizedBox(height: 14),
+              const TrainingCard(
+                icon: Icons.phone_android_outlined,
+                title: 'Mobile Application Development',
+                description:
+                    'Flutter and Dart fundamentals, responsive layouts, '
+                    'and screen navigation for mobile projects.',
+              ),
+              const SizedBox(height: 25),
+              SizedBox(
+                width: double.infinity,
+                child: ElevatedButton.icon(
+                  onPressed: () => Navigator.pop(context),
+                  icon: const Icon(Icons.arrow_back),
+                  label: const Text('BACK TO HOME'),
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: AppColors.primary,
+                    foregroundColor: Colors.white,
+                    minimumSize: const Size.fromHeight(48),
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(12),
+                    ),
+                  ),
+                ),
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+class TrainingCard extends StatelessWidget {
+  final IconData icon;
+  final String title;
+  final String description;
+
+  const TrainingCard({
+    super.key,
+    required this.icon,
+    required this.title,
+    required this.description,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Card(
+      color: AppColors.card,
+      elevation: 2,
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
+      child: Padding(
+        padding: const EdgeInsets.all(18),
+        child: Row(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Icon(icon, size: 26, color: AppColors.primary),
+            const SizedBox(width: 12),
+            Expanded(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  const Text(
+                    'Suggested',
+                    style: TextStyle(
+                      fontSize: 12,
+                      fontWeight: FontWeight.w600,
+                      color: AppColors.primary,
+                    ),
+                  ),
+                  const SizedBox(height: 4),
+                  Text(
+                    title,
+                    style: const TextStyle(
+                      fontSize: 17,
+                      fontWeight: FontWeight.bold,
+                      color: AppColors.primary,
+                    ),
+                  ),
+                  const SizedBox(height: 8),
+                  Text(
+                    description,
+                    style: const TextStyle(
+                      fontSize: 14,
+                      height: 1.5,
+                      color: AppColors.text,
+                    ),
+                  ),
+                ],
               ),
             ),
           ],

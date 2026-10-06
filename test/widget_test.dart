@@ -1,30 +1,71 @@
-// This is a basic Flutter widget test.
-//
-// To perform an interaction with a widget in your test, use the WidgetTester
-// utility in the flutter_test package. For example, you can send tap and scroll
-// gestures. You can also use WidgetTester to find child widgets in the widget
-// tree, read text, and verify that the values of widget properties are correct.
-
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 import 'package:resume_navigation_exam/main.dart';
 
 void main() {
-  testWidgets('Counter increments smoke test', (WidgetTester tester) async {
-    // Build our app and trigger a frame.
-    await tester.pumpWidget(const MyApp());
+  testWidgets('Home destinations and back controls work on a small phone', (
+    tester,
+  ) async {
+    tester.view.devicePixelRatio = 1;
+    tester.view.physicalSize = const Size(320, 568);
+    addTearDown(tester.view.resetPhysicalSize);
+    addTearDown(tester.view.resetDevicePixelRatio);
+    await tester.pumpWidget(const MyResumeApp());
+    await tester.pumpAndSettle();
 
-    // Verify that our counter starts at 0.
-    expect(find.text('0'), findsOneWidget);
-    expect(find.text('1'), findsNothing);
+    final destinations = {
+      'VIEW RESUME DETAILS': 'Resume Details',
+      'SKILLS & PROJECTS': 'Skills & Projects',
+      'CERTIFICATES & TRAINING': 'Certificates & Training',
+    };
+    for (final destination in destinations.entries) {
+      await tester.ensureVisible(find.text(destination.key));
+      await tester.pumpAndSettle();
+      await tester.tap(find.text(destination.key));
+      await tester.pumpAndSettle();
+      expect(find.text(destination.value), findsOneWidget);
+      await tester.ensureVisible(find.text('BACK TO HOME'));
+      await tester.pumpAndSettle();
+      await tester.tap(find.text('BACK TO HOME'));
+      await tester.pumpAndSettle();
+      expect(find.text('My Resume'), findsOneWidget);
+    }
 
-    // Tap the '+' icon and trigger a frame.
-    await tester.tap(find.byIcon(Icons.add));
-    await tester.pump();
+    await tester.ensureVisible(find.text('CERTIFICATES & TRAINING'));
+    await tester.pumpAndSettle();
+    await tester.tap(find.text('CERTIFICATES & TRAINING'));
+    await tester.pumpAndSettle();
+    expect(find.text('No certificates listed yet.'), findsOneWidget);
+    expect(find.text('Suggested Training'), findsOneWidget);
+    await tester.tap(find.byTooltip('Back'));
+    await tester.pumpAndSettle();
+    expect(find.text('My Resume'), findsOneWidget);
+    expect(tester.takeException(), isNull);
+  });
 
-    // Verify that our counter has incremented.
-    expect(find.text('0'), findsNothing);
-    expect(find.text('1'), findsOneWidget);
+  testWidgets('Training content scrolls without overflow with larger text', (
+    tester,
+  ) async {
+    tester.view.devicePixelRatio = 1;
+    tester.view.physicalSize = const Size(320, 568);
+    addTearDown(tester.view.resetPhysicalSize);
+    addTearDown(tester.view.resetDevicePixelRatio);
+    await tester.pumpWidget(
+      MaterialApp(
+        builder: (context, child) => MediaQuery(
+          data: MediaQuery.of(context)
+              .copyWith(textScaler: const TextScaler.linear(1.6)),
+          child: child!,
+        ),
+        home: const CertificatesTrainingScreen(),
+      ),
+    );
+    await tester.pumpAndSettle();
+    await tester.ensureVisible(find.text('Mobile Application Development'));
+    await tester.pumpAndSettle();
+    await tester.ensureVisible(find.text('BACK TO HOME'));
+    await tester.pumpAndSettle();
+    expect(tester.takeException(), isNull);
   });
 }
