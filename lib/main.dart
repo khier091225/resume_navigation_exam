@@ -147,10 +147,9 @@ class HomeScreen extends StatelessWidget {
 
                     Text(
                       'I am an IT Generalist with experience in technical '
-                      'support, troubleshooting, and daily IT operations. '
-                      'I am expanding my skills in mobile and web '
-                      'development to create reliable applications that '
-                      'are easy to use and support business needs.',
+                      'support and troubleshooting. I am pursuing BS '
+                      'Information Technology at Trimex Colleges, '
+                      'specializing in Mobile and Web Development.',
                       textAlign: TextAlign.center,
                       style: TextStyle(
                         fontSize: 15,
@@ -292,13 +291,16 @@ class ResumeDetailsScreen extends StatelessWidget {
             const SizedBox(height: 10),
 
             const ResumeCard(
-              title: 'Bachelor of Science in Information Technology',
+              title:
+                  'BS Information Technology Specialized in '
+                  'Mobile and Web Development',
               subtitle: 'Trimex Colleges',
               period: '2024 - Present',
               description:
                   'Currently pursuing a degree in Information '
-                  'Technology with focus on programming, '
-                  'software development, and mobile applications.',
+                  'Technology with a specialization in Mobile and Web '
+                  'Development, focusing on programming and building '
+                  'practical web and mobile applications.',
             ),
 
             const SizedBox(height: 25),
