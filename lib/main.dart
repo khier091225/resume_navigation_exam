@@ -104,7 +104,7 @@ class HomeScreen extends StatelessWidget {
 
             // CAREER TITLE
             const Text(
-              'Aspiring Mobile Application Developer',
+              'IT Generalist | Mobile & Web Development',
               textAlign: TextAlign.center,
               style: TextStyle(
                 fontSize: 17,
@@ -340,7 +340,7 @@ class ResumeDetailsScreen extends StatelessWidget {
 
             const ResumeCard(
               title: 'IT Generalist',
-              subtitle: 'Laguna Carparts Mfg., Inc.,',
+              subtitle: 'Laguna Carparts Mfg., Inc.',
               period: '2025 - Present',
               description:
                   'Provided broad IT support, assisted employees with '
@@ -351,7 +351,7 @@ class ResumeDetailsScreen extends StatelessWidget {
 
             const ResumeCard(
               title: 'IT Staff',
-              subtitle: 'San Roque Human Resources Corp.,',
+              subtitle: 'San Roque Human Resources Corp.',
               period: '2016 - 2022',
               description:
                   'Supported day-to-day IT operations, assisted users '
@@ -448,10 +448,10 @@ class SkillsProjectsScreen extends StatelessWidget {
                 SkillChip(skill: 'CSS'),
                 SkillChip(skill: 'JavaScript'),
                 SkillChip(skill: 'PHP'),
-                SkillChip(skill: 'AI'),
+                SkillChip(skill: 'Database'),
                 SkillChip(skill: 'Laravel'),
                 SkillChip(skill: 'UI/UX Design'),
-                SkillChip(skill: 'Database'),
+                SkillChip(skill: 'AI'),
               ],
             ),
 
